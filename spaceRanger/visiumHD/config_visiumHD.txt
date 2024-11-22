@@ -1,0 +1,15 @@
+FILE="/path/to/samplesheet/visium_samples.txt"
+
+IMAGEDIR="/path/to/images/directory"
+
+#Change to Human or Mouse
+REFER="/path/to/reference/file/refdata-gex-GRCh38-2020-A"
+
+#Change to Human or Mouse
+PROBESET="/path/to/probeset/file/Visium_Human_Transcriptome_Probe_Set_v2.0_GRCh38-2020-A.csv"
+
+FASTQS="/path/to/fastqs/directory"
+      
+CORES="number of cores"
+
+MEM="memory occupied"

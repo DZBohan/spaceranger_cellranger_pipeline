@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64GB
+#SBATCH --time=8:00:00
+
+module load spaceranger/2.0.1
+
+source /path/to/config/config_visiumV2.txt
+
+SAMPLELINE=$(sed -n "$SLURM_ARRAY_TASK_ID"p $FILE)
+
+SAMPLEID=$(echo $SAMPLELINE | cut -d, -f1)
+SLIDEID=$(echo $SAMPLELINE | cut -d, -f2)
+AREAID=$(echo $SAMPLELINE | cut -d, -f3)
+
+CYTAIMAGE=${IMAGEDIR}/${SAMPLEID}_${SLIDEID}_${AREAID}.tif
+IMAGE=${IMAGEDIR}/${SAMPLEID}.tif
+ALIGN=${IMAGEDIR}/${SLIDEID}-${AREAID}.json
+
+spaceranger count --id=${SAMPLEID} \
+                  --transcriptome=${REFER} \
+                  --probe-set=${PROBESET} \
+                  --fastqs=${FASTQS} \
+                  --sample=${SAMPLEID} \
+                  --cytaimage=${CYTAIMAGE} \
+                  --image=${IMAGE} \
+                  --slide=${SLIDEID} \
+                  --area=${AREAID} \
+                  --loupe-alignment=${ALIGN} \
+                  --localcores=${CORES} \
+                  --localmem=${MEM}

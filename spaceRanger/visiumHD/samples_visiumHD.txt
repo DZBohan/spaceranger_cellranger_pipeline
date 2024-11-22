@@ -1,0 +1,4 @@
+sample1,H1-KX7BG8F,D1 
+sample2,H1-HTKTCHC,A1 
+sample3,H1-XVNMGZG,A1 
+sample4,H1-KX7BG8F,A1 

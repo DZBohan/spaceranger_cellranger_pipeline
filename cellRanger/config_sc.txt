@@ -1,0 +1,9 @@
+FILE="/path/to/samples_sc.txt"
+
+REFER="/path/to/refdata-gex-GRCh38-2020-A"
+
+FASTQS="/path/to/fastqs/directory"
+
+CORES="number of cores"
+
+MEM="memory occupied"
